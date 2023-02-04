@@ -39,13 +39,13 @@ class NetworkManager {
             return
         } // получаем изображение
         if let cacheImage = imageCache.object(forKey: NSString(string: urlString)) {
-            completion(cacheImage as Data)
+            completion(cacheImage as Data) // ищем изображение из кэша
         } else {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard error == nil, let data = data else {
                     completion(nil)
                     return
-                } // кэшируем изображение
+                } // если не находим изображение в кэше - вызов загрузки изображения из урл
                 
                 self.imageCache.setObject(data as NSData, forKey: NSString(string: urlString))
                 completion(data)
