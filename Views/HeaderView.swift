@@ -14,7 +14,7 @@ final class HeaderView: UIView {
     private lazy var headingLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "News App Rzamolotov Tinkoff"
+        view.text = "News App Rzamolotov"
         view.font = UIFont.boldSystemFont(ofSize: fontSize)
         return view
     }()
