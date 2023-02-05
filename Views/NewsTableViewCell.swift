@@ -13,6 +13,7 @@ final class NewsTableViewCell: UITableViewCell {
         didSet {
             if let newsViewModel = newsViewModel {
                 titleLablel.text = newsViewModel.title
+                dateLabel.text = newsViewModel.publishedAt
                 NetworkManager.shared.getImage(urlString: newsViewModel.urlToImage) { (data) in
                     guard let data = data else { return }
                     DispatchQueue.main.async {
@@ -51,6 +52,14 @@ final class NewsTableViewCell: UITableViewCell {
         setupView()
     }
     
+    private lazy var dateLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.font = .systemFont(ofSize: 10)
+        view.textColor = .gray
+        return view
+    }()
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,6 +67,7 @@ final class NewsTableViewCell: UITableViewCell {
     func setupView(){
         addSubview(titleLablel)
         addSubview(newsImage)
+        addSubview(dateLabel)
         
         setupConstrains()
     }
@@ -77,6 +87,12 @@ final class NewsTableViewCell: UITableViewCell {
             titleLablel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             titleLablel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 8),
             titleLablel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+        ])
+        
+        //date
+        NSLayoutConstraint.activate([
+            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            dateLabel.topAnchor.constraint(equalTo: titleLablel.bottomAnchor, constant: 2)
         ])
     }
 }

@@ -58,6 +58,13 @@ final class DetailNewsView: UITableViewCell {
         setupView()
     }
     
+    private lazy var dateLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.font = .systemFont(ofSize: 3)
+        return view
+    }()
+    
     func linkButton() {
         let button = UIButton(frame: CGRect(x: 20, y: 20, width: 200, height: 60))
         button.setTitle("See More", for: .normal)
