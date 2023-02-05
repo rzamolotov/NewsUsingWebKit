@@ -48,7 +48,6 @@ final class DetailNewsView: UITableViewCell {
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.numberOfLines = 10
         view.font = .systemFont(ofSize: 10)
         return view
     }()
@@ -59,6 +58,18 @@ final class DetailNewsView: UITableViewCell {
         setupView()
     }
     
+    func linkButton() {
+        let button = UIButton(frame: CGRect(x: 20, y: 20, width: 200, height: 60))
+        button.setTitle("See More", for: .normal)
+        button.backgroundColor = .black
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+    }
+
+    @objc func buttonTapped(sender : UIButton) {
+        
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -66,6 +77,7 @@ final class DetailNewsView: UITableViewCell {
     func setupView(){
         addSubview(titleLablel)
         addSubview(newsImage)
+        addSubview(descriptionLabel)
         
         setupConstrains()
     }

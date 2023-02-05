@@ -24,7 +24,6 @@ class WebViewViewController: UIViewController {
     init(url: URL, title: String) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
-        
         self.title = title
     }
     
@@ -36,10 +35,15 @@ class WebViewViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(webView)
         webView.load(URLRequest(url: url))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = view.bounds
+    }
+    @objc private func dismissSelf() {
+        dismiss(animated: true, completion: nil)
     }
 
 }

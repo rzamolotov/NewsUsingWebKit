@@ -8,6 +8,7 @@
 import UIKit
 
 final class ShadowImageView: UIView {
+    
     var image: UIImage? {
         didSet {
             imageView.image = image
