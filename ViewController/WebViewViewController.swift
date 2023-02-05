@@ -21,9 +21,11 @@ class WebViewViewController: UIViewController {
     
     private let url: URL
     
-    init(url: URL) {
+    init(url: URL, title: String) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
+        
+        self.title = title
     }
     
     required init?(coder: NSCoder) {

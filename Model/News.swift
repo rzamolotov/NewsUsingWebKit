@@ -13,6 +13,7 @@ struct News: Decodable {
     let description: String?
     let url: String?
     let urlToImage: String?
+    let publishedAt: String?
 } //MARK: Модель данных получаемых для заголовков новостей
 
 struct NewsEnvelope: Decodable {
@@ -20,3 +21,6 @@ struct NewsEnvelope: Decodable {
     let totalResults: Int
     let articles: [News]
 }
+
+
+

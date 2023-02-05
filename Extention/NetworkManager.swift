@@ -14,7 +14,7 @@ class NetworkManager {
     private init() {}
     
     private let baseURLString = "https://newsapi.org/v2/" // переменная для домена откуда новости будем брать
-    private let topHeadline = "top-headlines?country=ru" // переменная для полученяи новостей
+    private let topHeadline = "top-headlines?country=us" // переменная для полученяи новостей
     
     func getNews(completion: @escaping ([News]?) -> Void) {
         let urlString = "\(baseURLString)\(topHeadline)&apiKey=\(APIKey.key)"

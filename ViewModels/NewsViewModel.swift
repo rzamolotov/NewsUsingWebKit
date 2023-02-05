@@ -22,11 +22,15 @@ struct NewsViewModel {
         return news.description ?? ""
     }
     
-    var url:String {
+    var url: String {
         return news.url ?? ""
     }
     
-    var urlToImage:String {
+    var urlToImage: String {
         return news.urlToImage ?? "https://acdn.tinkoff.ru/static/documents/513f36a0-d533-4240-902c-86f082781f41.png"
+    }
+    
+    var publishedAt: String {
+        return news.publishedAt ?? ""
     }
 }
