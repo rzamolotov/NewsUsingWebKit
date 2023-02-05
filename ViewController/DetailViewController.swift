@@ -9,9 +9,20 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var viewModel = NewsListViewModel()
+    
+    private lazy var detailNewsView: DetailNewsView = {
+        let view = DetailNewsView()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        setupView()
+    }
+    
+    func setupView() {
+        view.backgroundColor = .white
+        view.addSubview(detailNewsView)
     }
 }

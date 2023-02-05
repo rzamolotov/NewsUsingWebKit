@@ -85,6 +85,7 @@ final class DetailNewsView: UITableViewCell {
         addSubview(titleLablel)
         addSubview(newsImage)
         addSubview(descriptionLabel)
+        linkButton()
         
         setupConstrains()
     }
@@ -94,15 +95,15 @@ final class DetailNewsView: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLablel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLablel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            titleLablel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 8),
-            titleLablel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            titleLablel.topAnchor.constraint(equalTo: topAnchor),
+            titleLablel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         // news image
         NSLayoutConstraint.activate([
             newsImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             newsImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            newsImage.topAnchor.constraint(equalTo: topAnchor),
+            newsImage.topAnchor.constraint(equalTo: titleLablel.bottomAnchor, constant: 8),
             newsImage.heightAnchor.constraint(equalToConstant: 200)
         ])
 
